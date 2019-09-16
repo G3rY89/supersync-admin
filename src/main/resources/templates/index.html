@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>SuperSync</title>
+</head>
+<body>
+
+<div class="login-container">
+    <section class="login" id="login">
+        <header>
+            <h2>SuperSync Admin</h2>
+        </header>
+        <div class="user-table">
+            <a class="login-button navigation-link" href="/users">Összes regisztrált felhasználó</a><br>
+            <a class="login-button navigation-link" href="/registration">Új felhasználó hozzáadása</a>
+            <form th:action="@{/logout}" method="post">
+                <input class="login-button navigation-link" type="submit" value="Kijelentkezés"/>
+            </form>
+        </div>
+    </section>
+</div>
+</body>
+</html>

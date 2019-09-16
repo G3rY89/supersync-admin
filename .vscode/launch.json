@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-KulcsSoftApplication<ks-frontend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ks.frontend.KulcsSoftApplication",
+            "projectName": "ks-frontend",
+            "args": ""
+        }
+    ]
+}

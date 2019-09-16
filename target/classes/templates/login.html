@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>SuperSync admin</title>
+</head>
+<body>
+<div class="login-container">
+    <section class="login" id="login">
+        <header>
+            <h2>SuperSync Admin bejelentkezés</h2>
+        </header>
+        <div class="user-table">
+            <div th:if="${param.error}">
+                Érvénytelen adatok
+            </div>
+            <form th:action="@{/login}" method="post">
+                <div><input class="login-input" type="text" placeholder="Felhasználó név" name="username"></div>
+                <div><input class="login-input" type="password" placeholder="Jelszó" name="password"></div>
+                <div><input class="login-button navigation-link" type="submit" value="Bejelentkezés"/></div>
+            </form>
+        </div>
+    </section>
+</div>
+</body>
+</html>

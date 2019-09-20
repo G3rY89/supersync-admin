@@ -2,33 +2,33 @@ package com.ks.frontend.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import com.ks.frontend.model.SuperSyncUser;
+import com.ks.frontend.model.SuperSyncWebshops;
 import com.ks.frontend.repository.SuperSyncUserRepository;
-import com.ks.frontend.repository.UserWebshopsRepository;
-
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService{
+public class UserService {
 
     private SuperSyncUserRepository superSyncUserRepository;
-    private UserWebshopsRepository userWebshopsRepository;
 
-    public UserService(SuperSyncUserRepository superSyncUserRepositoryService, UserWebshopsRepository userWebshopsRepositoryService){
+    public UserService(SuperSyncUserRepository superSyncUserRepositoryService) {
         this.superSyncUserRepository = superSyncUserRepositoryService;
-        this.userWebshopsRepository = userWebshopsRepositoryService;
     }
 
+    public Optional<SuperSyncWebshops> getSuperSyncUserById(Integer id) {
+        return superSyncUserRepository.findById(id);
+    }
 
-    public List<SuperSyncUser> getAllusers(){
-        List<SuperSyncUser> userList = new ArrayList<>();
+    public List<SuperSyncWebshops> getSuperSyncWebshopsByWebIdentifier(String webIdentifier){
+        return superSyncUserRepository.findByWebIdentifier(webIdentifier);
+    }
+
+    public List<SuperSyncWebshops> getAllusers(){
+        List<SuperSyncWebshops> userList = new ArrayList<>();
         userList = superSyncUserRepository.findAll();
         return userList;
-    }
-
-    public void addUser(String webIdentifier, String webPassword){
-        superSyncUserRepository.save(new SuperSyncUser(webIdentifier, webPassword));
     }
 
     public void deleteUser(String id){

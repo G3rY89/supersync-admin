@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" >
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200" rel="stylesheet">
+    <script defer src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/app.js" defer></script>
+    <meta charset="UTF-8">
+    <title>SuperSync felhasználó</title>
+</head>
+<body>
+<div class="login-container">
+    <section class="login" id="login">
+        <header>
+            <h2>Felhasználó webshopjai</h2>
+        </header>
+            <div class="user-table" id="user-table">
+                <table id="userstable">
+                    <tr>
+                        <th>Webshop neve</th>
+                        <th>Api kulcs</th>
+                        <th>Webshop felhasználónév</th>
+                        <th>Webshop jelszó</th>
+                        <th></th>
+                    </tr>
+                    <tr th:each="webshop : ${webshops}">
+                        <td th:text="${webshop.webshopName}"></td>
+                        <td th:text="${webshop.webshopApiKey}"></td>
+                        <td th:text="${webshop.webshopUsername}"></td>
+                        <td th:text="${webshop.webshopPassword}"></td>
+                        <td><a class="btn btn-primary" th:href="@{'/modify/' + ${webshop.webshopApiKey}}" role="button">Módosítás</a></td>
+                    </tr>
+                </table>
+            </div>
+        <a class="login-button navigation-link" href="/users">Vissza</a>
+    </section>
+</div>
+<div id="popup-container"></div>
+</body>
+</html>

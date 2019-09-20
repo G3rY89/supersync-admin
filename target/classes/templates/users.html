@@ -18,17 +18,13 @@
             <div class="user-table" id="user-table">
                 <table id="userstable">
                     <tr>
-                        <th>ID</th>
                         <th>Web Azonosító</th>
-                        <th>Web Jelszó</th>
                     </tr>
                     <tr th:each="user : ${users}" th:id="'table' + ${user.id}">
-                            <td th:text="${user.id}"></td>
                         <td th:text="${user.webIdentifier}"></td>
-                        <td th:text="${user.webPassword}"></td>
-                        <td></td>
                         <td>
                             <input type="button" th:name="${user.id}" class="btn removeuser btn-danger" value="Törlés">
+                            <a class="btn btn-primary" th:href="@{'/user/' + ${user.webIdentifier}}" role="button">Kiválasztás</a>
                         </td>
                     </tr>
                 </table>

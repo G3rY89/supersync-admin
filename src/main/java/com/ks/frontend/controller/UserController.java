@@ -19,11 +19,6 @@ public class UserController{
         this.userService = service;
     }
 
-    @RequestMapping(value = "/adduser", method = RequestMethod.POST)
-    public void addUser(@RequestParam("webIdentifier") String webIdentifier, @RequestParam("webPassword") String webPassword){
-        userService.addUser(webIdentifier, webPassword);
-    }
-
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     public void removeUser(@RequestParam("userid") String userId){
         userService.deleteUser(userId);

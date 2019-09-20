@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" >
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200" rel="stylesheet">
+    <script defer src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/js/app.js" defer></script>
+    <meta charset="UTF-8">
+    <title>SuperSync felhasználó</title>
+</head>
+<body>
+<div class="login-container">
+    <section class="login" id="login">
+        <header>
+            <h2>Felhasználó folyamatai az adott webshophoz</h2>
+        </header>
+            <div class="user-table" id="user-table">
+                <table id="userstable">
+                    <tr>
+                        <th>Ügyfél letöltés</th>
+                        <th>Rendelés letöltés</th>
+                        <th>Termék letöltés</th>
+                        <th>Termékkategória feltöltés</th>
+                        <th>Készlet feltöltés</th>
+                        <th>Ügyfél feltöltés</th>
+                        <th>Rendelés feltöltés</th>
+                        <th>Termék feltöltés</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="getCustomer" th:checked="${processes.getCustomer} == 1"></td>
+                        <td><input type="checkbox" id="getOrder" th:checked="${processes.getOrder} == 1"></td>
+                        <td><input type="checkbox" id="getProduct" th:checked="${processes.getProduct} == 1"></td>
+                        <td><input type="checkbox" id="getProductCategories" th:checked="${processes.getProductCategories} == 1"></td>
+                        <td><input type="checkbox" id="getStock" th:checked="${processes.getStock} == 1"></td>
+                        <td><input type="checkbox" id="setCustomer" th:checked="${processes.setCustomer} == 1"></td>
+                        <td><input type="checkbox" id="setOrder" th:checked="${processes.setOrder} == 1"></td>
+                        <td><input type="checkbox" id="setProduct" th:checked="${processes.setProduct} == 1"></td>
+                        <input type="hidden" id="apiKey" th:value="${processes.apiKey}">
+                    </tr>
+                </table>
+            </div>
+        <a class="login-button navigation-link" href="/users">Vissza</a>
+        <a class="login-button navigation-link" id="saveprocesses">Mentés</a>
+    </section>
+</div>
+<div id="popup-container"></div>
+</body>
+</html>

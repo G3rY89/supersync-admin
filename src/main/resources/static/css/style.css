@@ -244,4 +244,9 @@ td {
 
 th {
     text-align: center;
+    padding: 10px;
+}
+
+td {
+    text-align: center;
 }

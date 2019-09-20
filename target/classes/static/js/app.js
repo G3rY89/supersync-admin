@@ -10,10 +10,42 @@ var checkTable = function(){
 }
 
 $(document).ready(function () {
+    $('#saveprocesses').on("click", function(e) {
+
+        var processes = {
+            "getProduct" : $('#getProduct').is(':checked') ? 1 : 0,
+            "setProduct" : $('#setProduct').is(':checked') ? 1 : 0,
+            "getCustomer" : $('#getCustomer').is(':checked') ? 1 : 0,
+            "setCustomer" : $('#setCustomer').is(':checked') ? 1 : 0,
+            "getOrder" : $('#getOrder').is(':checked') ? 1 : 0,
+            "setOrder" : $('#setOrder').is(':checked') ? 1 : 0,
+            "getProductCategories" : $('#getProductCategories').is(':checked') ? 1 : 0,
+            "getStock" : $('#getStock').is(':checked') ? 1 : 0,
+            "apiKey" : $('#apiKey').val()
+        }
+
+        $.ajax({
+            url: '/update',
+            method: "post",
+            contentType: "application/json",
+            data: JSON.stringify(processes),
+            success: function(){
+                addSuccess('Sikeresen módosítva!', 'user-added');
+                $('.alert-success').show();
+                $('.alert-success').delay(1500).fadeOut('slow');
+                setTimeout(function () {
+                    window.location.href = "/users";
+                }, 2000);
+            }
+        })
+    })
+})
+
+$(document).ready(function () {
     $('#storeuser').on("click", function(e) {
         if(isInputFilled()){
                 $.ajax({
-                    url: 'http://localhost:8888/adduser',
+                    url: '/adduser',
                     method: "post",
                     data: {webIdentifier: document.getElementById("webIdentidfier").value,
                     webPassword: document.getElementById("webPassword").value},
@@ -61,7 +93,7 @@ $(document).ready(function () {
     $('.removeuser').on("click", function(e) {
         let userid = e.target.name;
         $.ajax({
-            url: 'http://localhost:8888/delete',
+            url: '/delete',
             method: "POST",
             data: {userid: userid},
             success: function () {

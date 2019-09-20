@@ -7,14 +7,16 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name = "webshops")
-public class UserWebshops{
+public class SuperSyncWebshops{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer id;
+    @Column(nullable = false, unique = false)
+    public String webIdentifier;
     @Column(nullable = false, unique = true)
-    public Integer userId;
-    @Column(nullable = false, unique = true)
+    public String webPassword;
+    @Column(nullable = false, unique = false)
     public String webshopName;
     @Column(nullable = true, unique = true)
     public String webshopApiKey;
@@ -22,6 +24,29 @@ public class UserWebshops{
     public String webshopUsername;
     @Column(nullable = true, unique = true)
     public String webshopPassword;
+
+    public SuperSyncWebshops(String webIdentifier){
+        this.webIdentifier = webIdentifier;
+    }
+
+    public SuperSyncWebshops(String webIdentifier, String webPassword, String webshopName, String webshopApikey){
+        this.webIdentifier = webIdentifier;
+        this.webPassword = webPassword;
+        this.webshopApiKey = webshopApikey;
+        this.webshopName = webshopName;
+    }
+
+    public SuperSyncWebshops(String webIdentifier, String webPassword, String webshopName, String webshopUsername, String webshopPassword){
+        this.webIdentifier = webIdentifier;
+        this.webPassword = webPassword;
+        this.webshopName = webshopName;
+        this.webshopUsername = webshopUsername;
+        this.webshopPassword = webshopPassword;
+    }
+
+    public SuperSyncWebshops(){
+
+    }
 
     /**
      * @return the id
@@ -33,8 +58,8 @@ public class UserWebshops{
     /**
      * @return the userId
      */
-    public Integer getUserId() {
-        return userId;
+    public String getwebIdentifier() {
+        return webIdentifier;
     }
 
     /**

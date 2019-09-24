@@ -16,6 +16,6 @@ public interface ProcessRepository extends JpaRepository<Processes, Integer>{
 
     @Transactional
     @Modifying(clearAutomatically = true)
-    @Query("UPDATE Processes SET get_customer = :#{#processes.getCustomer}, get_order = :#{#processes.getOrder}, get_product = :#{#processes.getProduct}, get_product_categories = :#{#processes.getProductCategories}, get_stock = :#{#processes.getStock}, set_customer = :#{#processes.setCustomer}, set_order = :#{#processes.setOrder}, set_product = :#{#processes.setProduct} where api_key = :#{#processes.apiKey}")
+    @Query("UPDATE Processes SET get_customer = :#{#processes.getCustomer}, get_order = :#{#processes.getOrder}, get_product = :#{#processes.getProduct}, set_product_categories = :#{#processes.setProductCategories}, set_stock = :#{#processes.setStock}, set_customer = :#{#processes.setCustomer}, set_order = :#{#processes.setOrder}, set_product = :#{#processes.setProduct} where api_key = :#{#processes.apiKey}")
     void setProcesses(@Param("processes") Processes processes);
 }

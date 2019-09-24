@@ -19,8 +19,8 @@ $(document).ready(function () {
             "setCustomer" : $('#setCustomer').is(':checked') ? 1 : 0,
             "getOrder" : $('#getOrder').is(':checked') ? 1 : 0,
             "setOrder" : $('#setOrder').is(':checked') ? 1 : 0,
-            "getProductCategories" : $('#getProductCategories').is(':checked') ? 1 : 0,
-            "getStock" : $('#getStock').is(':checked') ? 1 : 0,
+            "setroductCategories" : $('#setProductCategories').is(':checked') ? 1 : 0,
+            "setStock" : $('#setStock').is(':checked') ? 1 : 0,
             "apiKey" : $('#apiKey').val()
         }
 

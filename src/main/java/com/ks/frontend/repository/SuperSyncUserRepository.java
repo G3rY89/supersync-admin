@@ -6,7 +6,6 @@ import java.util.Optional;
 import com.ks.frontend.model.SuperSyncWebshops;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 public interface SuperSyncUserRepository extends JpaRepository<SuperSyncWebshops, Integer> {
 

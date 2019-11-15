@@ -23,4 +23,9 @@ public class UserController{
     public void removeUser(@RequestParam("userid") String userId){
         userService.deleteUser(userId);
     }
+
+    @RequestMapping(value = "/deletewebshop", method = RequestMethod.POST)
+    public void removeWebshop(@RequestParam("webshopId") String webshopId, @RequestParam("apiKey") String apiKey){
+        userService.deleteWebshop(webshopId, apiKey);
+    }
 }

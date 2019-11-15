@@ -20,7 +20,7 @@ public class ProcessController{
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public void removeUser(@RequestBody Processes processes){
+    public void updateProcesses(@RequestBody Processes processes){
        processService.updateProcesses(processes);
     }
     

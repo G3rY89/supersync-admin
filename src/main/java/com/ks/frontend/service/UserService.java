@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.ks.frontend.model.SuperSyncWebshops;
+import com.ks.frontend.repository.ProcessRepository;
 import com.ks.frontend.repository.SuperSyncUserRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,11 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private SuperSyncUserRepository superSyncUserRepository;
+    private ProcessRepository processRepository;
 
-    public UserService(SuperSyncUserRepository superSyncUserRepositoryService) {
+    public UserService(SuperSyncUserRepository superSyncUserRepositoryService, ProcessRepository processRepositoryService) {
         this.superSyncUserRepository = superSyncUserRepositoryService;
+        this.processRepository = processRepositoryService;
     }
 
     public Optional<SuperSyncWebshops> getSuperSyncUserById(Integer id) {
@@ -33,6 +36,11 @@ public class UserService {
 
     public void deleteUser(String id){
         superSyncUserRepository.deleteById(Integer.parseInt(id));
+    }
+
+    public void deleteWebshop(String id, String ApiKey){
+        superSyncUserRepository.deleteById(Integer.parseInt(id));
+        processRepository.deleteByApiKey(ApiKey);
     }
 
 }

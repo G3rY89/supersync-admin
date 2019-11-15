@@ -118,6 +118,41 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $('.removewebshop').on("click", function(e) {
+        let webshopid = e.target.name;
+        let webIdentifier = e.target.id;
+        let apiKey = e.tartget.attributes.getNamedItem("data-apiKey").value 
+        console.log(apiKey);
+
+        $.ajax({
+            url: '/deletewebshop',
+            method: "POST",
+            data: {webshopId: webshopid,
+                    apiKey : apiKey},
+            success: function () {
+                addSuccess('Webshop eltávolítva!', 'user-removed');
+                $('.alert-success').show();
+                $('.alert-success').delay(1500).fadeOut('slow');
+                setTimeout(function () {
+                    $('#user-removed').remove();
+                }, 2000);
+                setTimeout(function () {
+                    window.location.replace("/user/" + webIdentifier);
+                }, 2500);
+            },
+            error: function () {
+                addError('Hiba!', 'error');
+                $('.alert').show();
+                $('.alert').delay(1500).fadeOut('slow');
+                setTimeout(function () {
+                    $('#error').remove();
+                }, 2000);
+            }
+        });
+    })
+});
+
 checkTable();
 
 function addSuccess(message, divId) {

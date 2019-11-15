@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" >
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200" rel="stylesheet">
     <script defer src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/app.js" defer></script>
+    <script type="text/javascript" src="/js/app.js" defer></script>
     <meta charset="UTF-8">
     <title>SuperSync felhasználó</title>
 </head>
@@ -23,6 +23,7 @@
                         <th>Webshop felhasználónév</th>
                         <th>Webshop jelszó</th>
                         <th></th>
+                        <th></th>
                     </tr>
                     <tr th:each="webshop : ${webshops}">
                         <td th:text="${webshop.webshopName}"></td>
@@ -30,6 +31,7 @@
                         <td th:text="${webshop.webshopUsername}"></td>
                         <td th:text="${webshop.webshopPassword}"></td>
                         <td><a class="btn btn-primary" th:href="@{'/modify/' + ${webshop.webshopApiKey}}" role="button">Módosítás</a></td>
+                        <td><input type="button" th:data-apiKey="${webshop.webshopApiKey}" th:id="${webshop.webIdentifier}" th:name="${webshop.id}" class="btn removewebshop btn-danger" value="Törlés"></td>
                     </tr>
                 </table>
             </div>

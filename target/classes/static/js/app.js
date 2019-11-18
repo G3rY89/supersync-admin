@@ -122,7 +122,7 @@ $(document).ready(function () {
     $('.removewebshop').on("click", function(e) {
         let webshopid = e.target.name;
         let webIdentifier = e.target.id;
-        let apiKey = e.tartget.attributes.getNamedItem("data-apiKey").value 
+        let apiKey = e.target.attributes.getNamedItem("data-apiKey").value 
         console.log(apiKey);
 
         $.ajax({

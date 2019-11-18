@@ -41,6 +41,8 @@ public class UserService {
     public void deleteWebshop(String id, String ApiKey){
         superSyncUserRepository.deleteById(Integer.parseInt(id));
         processRepository.deleteByApiKey(ApiKey);
+        System.out.println(ApiKey);
+        System.out.println("törölve");
     }
 
 }

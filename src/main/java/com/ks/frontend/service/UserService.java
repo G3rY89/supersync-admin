@@ -34,15 +34,13 @@ public class UserService {
         return userList;
     }
 
-    public void deleteUser(String id){
-        superSyncUserRepository.deleteById(Integer.parseInt(id));
-    }
-
-    public void deleteWebshop(String id, String ApiKey){
+    public void deleteUser(String id, String ApiKey){
         superSyncUserRepository.deleteById(Integer.parseInt(id));
         processRepository.deleteByApiKey(ApiKey);
-        System.out.println(ApiKey);
-        System.out.println("törölve");
+    }
+
+    public void deleteWebshop(String id){
+        superSyncUserRepository.deleteById(Integer.parseInt(id));
     }
 
 }

@@ -92,10 +92,12 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.removeuser').on("click", function(e) {
         let userid = e.target.name;
+        let apiKey = e.target.attributes.getNamedItem("data-apiKey").value 
         $.ajax({
-            url: '/delete',
+            url: '/deletewebidentifier',
             method: "POST",
-            data: {userid: userid},
+            data: {userid: userid,
+                   apiKey : apiKey},
             success: function () {
                 addSuccess('Felhasználó eltávolítva!', 'user-removed');
                 $('.alert-success').show();
@@ -122,14 +124,10 @@ $(document).ready(function () {
     $('.removewebshop').on("click", function(e) {
         let webshopid = e.target.name;
         let webIdentifier = e.target.id;
-        let apiKey = e.target.attributes.getNamedItem("data-apiKey").value 
-        console.log(apiKey);
-
         $.ajax({
             url: '/deletewebshop',
             method: "POST",
-            data: {webshopId: webshopid,
-                    apiKey : apiKey},
+            data: {webshopId: webshopid},
             success: function () {
                 addSuccess('Webshop eltávolítva!', 'user-removed');
                 $('.alert-success').show();

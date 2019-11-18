@@ -19,13 +19,13 @@ public class UserController{
         this.userService = service;
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public void removeUser(@RequestParam("userid") String userId){
-        userService.deleteUser(userId);
+    @RequestMapping(value = "/deletewebidentifier", method = RequestMethod.POST)
+    public void removeUser(@RequestParam("userid") String userId, @RequestParam("apiKey") String apiKey){
+        userService.deleteUser(userId, apiKey);
     }
 
     @RequestMapping(value = "/deletewebshop", method = RequestMethod.POST)
-    public void removeWebshop(@RequestParam("webshopId") String webshopId, @RequestParam("apiKey") String apiKey){
-        userService.deleteWebshop(webshopId, apiKey);
+    public void removeWebshop(@RequestParam("webshopId") String webshopId){
+        userService.deleteWebshop(webshopId);
     }
 }

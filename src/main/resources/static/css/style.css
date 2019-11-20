@@ -70,7 +70,7 @@ body {
 
 .login {
     position: relative;
-    width: 100%;
+    width: 80%;
     padding: 10px;
     margin: 0 0 10px 0;
     box-sizing: border-box;
@@ -83,6 +83,12 @@ body {
     0 3px 1px -2px rgba(0, 0, 0, 0.2);
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+}
+
+.kulcs_logo {
+    max-width: 30%; 
+    height: auto;
+    margin-top: 20px;
 }
 
 .login > header {
@@ -151,7 +157,7 @@ body {
 /* Inputs */
 .login-input {
     position: relative;
-    width: 100%;
+    width: 50%;
     padding: 10px 5px;
     margin: 0 0 25px 0;
     border: none;

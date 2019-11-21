@@ -19,7 +19,7 @@ body {
     position: relative;
     min-height: 100%;
     font-family: 'Montserrat', sans-serif;
-    background-image: linear-gradient(white, #337ab7);
+    background-image: linear-gradient(45deg, grey, #337ab7);
 }
 
 /* Animation Keyframes */
@@ -96,7 +96,7 @@ body {
     padding: 10px;
     margin: -10px -10px 25px -10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    background: #337ab7;
+    background: linear-gradient(45deg, #337ab7, transparent);
     font-family: 'Montserrat', sans-serif;
     font-size: 1.3rem;
     color: #FAFAFA;

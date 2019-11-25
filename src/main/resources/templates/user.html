@@ -31,12 +31,12 @@
                         <td th:text="${webshop.webshopApiKey}"></td>
                         <td th:text="${webshop.webshopUsername}"></td>
                         <td th:text="${webshop.webshopPassword}"></td>
-                        <td><a class="btn btn-primary" th:href="@{'/modify/' + ${webshop.webshopApiKey}}" role="button">Módosítás</a></td>
-                        <td><input type="button" th:data-apiKey="${webshop.webshopApiKey}" th:id="${webshop.webIdentifier}" th:name="${webshop.id}" class="btn removewebshop btn-danger" value="Törlés"></td>
+                        <td><a class="button float-shadow" th:href="@{'/modify/' + ${webshop.webshopApiKey}}" role="button">Módosítás</a></td>
+                        <td><input type="button" th:data-apiKey="${webshop.webshopApiKey}" th:id="${webshop.webIdentifier}" th:name="${webshop.id}" class="button float-shadow removewebshop" value="Törlés"></td>
                     </tr>
                 </table>
             </div>
-        <a class="login-button navigation-link" href="/users">Vissza</a>
+        <a class="login-button button float-shadow navigation-link" href="/users">Vissza</a>
     </section>
 </div>
 <div id="popup-container"></div>
